@@ -3,7 +3,7 @@
     <div class="content__wrapper">
       <v-row justify="center">
         <!-- Headline -->
-        <v-col cols="12" sm="8" md="4">
+        <v-col cols="12" sm="8" md="6">
           <div class="headline">
             <div class="headline__head">
               <div class="headline__title">How it Works ?</div>
@@ -28,7 +28,7 @@
           </div>
         </v-col>
         <!-- Voucher Application Form -->
-        <v-col cols="12" sm="8" md="4">
+        <v-col cols="12" sm="8" md="6">
           <div class="voucher">
             <!-- Voucher List Component -->
             <template v-if="step === 'voucher-list'">
