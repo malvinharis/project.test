@@ -57,7 +57,8 @@
           <div
             class="voucher-message__payment-price orange--text text--accent-4"
           >
-            Rp. 3.000.000
+            Rp.
+            {{ formatPrice(parseInt(data.voucher.price * data.form.quantity)) }}
           </div>
         </div>
       </div>
@@ -93,9 +94,7 @@
             <div class="voucher-message__detail-title">Amount</div>
             <div class="voucher-message__detail-value">
               Rp.
-              {{
-                formatPrice(parseInt(data.voucher.price * data.form.quantity))
-              }}
+              {{ formatPrice(parseInt(data.voucher.price)) }}
             </div>
           </div>
         </div>
