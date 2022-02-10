@@ -64,7 +64,7 @@
 export default {
   name: 'IndexPage',
   data: () => ({
-    step: 'voucher-message', // voucher-list -> voucher-form -> payment-method -> voucher-message
+    step: 'voucher-list', // voucher-list -> voucher-form -> payment-method -> voucher-message
     headlines: [
       {
         content:
