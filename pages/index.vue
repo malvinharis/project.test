@@ -47,7 +47,11 @@
             </template>
             <!-- Voucher Payment Method Component-->
             <template v-else-if="step === 'payment-method'">
-              <VoucherPaymentMethod :data="data" @back="handleBack" />
+              <VoucherPaymentMethod
+                :data="data"
+                @payment-method="handleStep"
+                @back="handleBack"
+              />
             </template>
             <!-- Voucher Message-->
             <template v-else-if="step === 'voucher-message'">
@@ -270,12 +274,12 @@ export default {
           recipientEmail: '',
           message: '',
         }
-        console.log(this.data)
       } else if (this.step === 'voucher-form') {
         this.data.form = e.data
       } else if (this.step === 'payment-method') {
         this.data.method = e.data
       }
+      console.log(this.data)
       this.step = e.step
     },
     handleBack() {

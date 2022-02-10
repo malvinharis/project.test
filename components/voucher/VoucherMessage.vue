@@ -8,7 +8,7 @@
         icon
         @click="
           (event) => {
-            $emit('back', event)
+            $emit('exit', event)
           }
         "
       >
@@ -23,13 +23,15 @@
       <div class="voucher-message__summary-group">
         <div class="voucher-message__voucher">
           <div class="voucher-message__voucher-image">
-            <v-img
-              src="https://dummyimage.com/600x400/e3e3e3/fff&text=+"
-            ></v-img>
+            <v-img :src="data.voucher.image"></v-img>
           </div>
           <div class="voucher-message__voucher-group">
-            <div class="voucher-message__voucher-title">Home Living</div>
-            <div class="voucher-message__voucher-subtitle">1 Item</div>
+            <div class="voucher-message__voucher-title">
+              {{ data.voucher.title }}
+            </div>
+            <div class="voucher-message__voucher-subtitle">
+              {{ data.form.quantity }} Item
+            </div>
           </div>
         </div>
       </div>
@@ -83,11 +85,18 @@
         <div class="voucher-message__detail">
           <div class="voucher-message__detail-group">
             <div class="voucher-message__detail-title">Qty</div>
-            <div class="voucher-message__detail-value">1</div>
+            <div class="voucher-message__detail-value">
+              {{ data.form.quantity }}
+            </div>
           </div>
           <div class="voucher-message__detail-group">
             <div class="voucher-message__detail-title">Amount</div>
-            <div class="voucher-message__detail-value">Rp. 3.000.000</div>
+            <div class="voucher-message__detail-value">
+              Rp.
+              {{
+                formatPrice(parseInt(data.voucher.price * data.form.quantity))
+              }}
+            </div>
           </div>
         </div>
       </div>
@@ -96,11 +105,15 @@
         <div class="voucher-message__detail">
           <div class="voucher-message__detail-group">
             <div class="voucher-message__detail-title">Merchant</div>
-            <div class="voucher-message__detail-value">My Brand</div>
+            <div class="voucher-message__detail-value">
+              {{ data.method.type }}
+            </div>
           </div>
           <div class="voucher-message__detail-group">
             <div class="voucher-message__detail-title">Payment Method</div>
-            <div class="voucher-message__detail-value">Bank BCA</div>
+            <div class="voucher-message__detail-value">
+              {{ data.method.name }}
+            </div>
           </div>
         </div>
       </div>
@@ -112,6 +125,11 @@
         class="voucher-message__action-button white--text"
         large
         outlined
+        @click="
+          (event) => {
+            $emit('exit', event)
+          }
+        "
       >
         Finish
       </v-btn>
@@ -119,6 +137,16 @@
   </v-card>
 </template>
 <script>
-export default {}
+export default {
+  props: {
+    data: Object,
+  },
+  methods: {
+    formatPrice(value) {
+      const val = (value / 1).toFixed(0).replace('.', ',')
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+    },
+  },
+}
 </script>
 <style lang=""></style>

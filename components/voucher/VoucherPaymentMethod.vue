@@ -50,6 +50,7 @@
         v-for="(itemChild, idx2) in item.options"
         :key="idx2"
         class="voucher-payment__item"
+        @click="handlePaymentMethod(item.type, itemChild.name)"
       >
         <div class="voucher-payment__item-logo">
           <v-img
@@ -75,6 +76,10 @@ export default {
     data: Object,
   },
   data: () => ({
+    selectedPayment: {
+      type: '',
+      name: '',
+    },
     payments: [
       {
         type: 'e-Wallet',
@@ -124,6 +129,16 @@ export default {
     formatPrice(value) {
       const val = (value / 1).toFixed(0).replace('.', ',')
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+    },
+    handlePaymentMethod(value1, value2) {
+      this.selectedPayment = {
+        type: value1,
+        name: value2,
+      }
+      this.$emit('payment-method', {
+        data: this.selectedPayment,
+        step: 'voucher-message',
+      })
     },
   },
 }
