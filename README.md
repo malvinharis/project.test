@@ -1,5 +1,41 @@
 # tada.frontend
 
+```
+### Estimate Timiline Development
+```
+3.3
+- Setup Project           : -+30m
+- Base Layout Design      : -+1.30h
+- Step Function           : -+1.30h
+
+```
+### Voucher Application - 1st Step
+```
+
+- Voucher List Design     : -+2h
+- Voucher List Function   : -+2h
+
+```
+### Voucher Application - 2nd Step
+```
+
+- Voucher Form Design     : -+3.3h
+- Voucher Form Function   : -+3h
+
+```
+### Voucher Application - 3rd Step
+```
+
+- Voucher Payment Method Design     : -+1.3h
+- Voucher Payment Method Function   : -+1h
+
+```
+### Voucher Application - last Step
+```
+
+- Voucher Message Design     : -+1h
+- Voucher Message Function   : -+30m
+
 ## Build Setup
 
 ```bash
