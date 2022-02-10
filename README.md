@@ -3,7 +3,7 @@
 ```
 ### Estimate Timiline Development
 ```
-3.3
+
 - Setup Project           : -+30m
 - Base Layout Design      : -+1.30h
 - Step Function           : -+1.30h
